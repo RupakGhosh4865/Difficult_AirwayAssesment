@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 
 # ---- Paths & Model Setup ---
-base_dir = r"D:\rupak try\data"
+base_dir = r"D:\rupak try\airway\data"
 MODEL_PATH = os.path.join(base_dir, "model_intubation.pt")
 CLASS_NAMES_PATH = os.path.join(base_dir, "class_names.txt")
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -146,7 +146,7 @@ if submit_button:
             <br><span style="color:#289c58;font-size:1.01em;">(Confidence: {probs[pred_idx]*100:.2f}%)</span>
             </div>
             """, unsafe_allow_html=True)
-        st.write(f"**Easy:** {probs[0]*100:.2f}%  |  **Difficult:** {probs[1]*100:.2f}%")
+        st.write(f"**Easy:** {probs[1]*100:.2f}%  |  **Difficult:** {probs[0]*100:.2f}%")
         st.caption("Interpret results in context of bedside airway exams, patient history, BMI, and prior anesthesia records.")
     elif 0 < len(images) < 3:
         st.warning("Please upload all 3 photos (Neutral, Tongue Out, Head Up) to get a prediction.")
