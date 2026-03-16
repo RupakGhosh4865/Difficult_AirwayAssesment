@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FileText, Download, ExternalLink, Loader2, AlertCircle } from 'lucide-react';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 
 export default function ResearchPage() {
   const [loading, setLoading] = useState(true);

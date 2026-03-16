@@ -10,7 +10,7 @@ import { TrendingUp, Target, Activity, Zap, Loader2, AlertCircle } from 'lucide-
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 
 type MetricsData = {
   accuracy: number;
