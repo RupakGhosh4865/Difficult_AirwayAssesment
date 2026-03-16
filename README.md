@@ -37,4 +37,27 @@ AirwayAI is a modern, deep-learning based platform for preoperative and emergenc
 - **Methodology Access**: Direct access to underlying research and papers.
 
 ---
-*Disclaimer: For educational and simulated clinical support only. Not validated for real patient care.*
+
+## 🚀 Deployment Guide
+
+### Phase 1: Backend (FastAPI + AI Model) on Render
+1.  **New Service**: Go to [Render.com](https://render.com) and create a new **Web Service**.
+2.  **Settings**:
+    *   **Root Directory**: `backend`
+    *   **Runtime**: `Python 3`
+    *   **Build Command**: `pip install -r requirements.txt`
+    *   **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT` (⚠️ Ensure it is `main:app`, NOT `api.main:app`)
+3.  **Deployment**: Click Create. Once finished, copy the URL (e.g., `https://airway-backend.onrender.com`).
+
+### Phase 2: Frontend (Next.js) on Vercel
+1.  **New Project**: Go to [Vercel.com](https://vercel.com) and import your repository.
+2.  **Settings**:
+    *   **Root Directory**: `frontend`
+3.  **Environment Variables**:
+    *   Add a variable named `NEXT_PUBLIC_API_URL`.
+    *   Value: Your Render backend URL (e.g., `https://airway-backend.onrender.com`).
+4.  **Deploy**: Click Deploy.
+
+---
+
+Developed with ❤️ by AirwayAI Team
