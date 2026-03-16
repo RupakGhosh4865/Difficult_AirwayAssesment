@@ -1,137 +1,40 @@
-# 🩺 Intubation Difficulty Predictor (AI-Assisted)
+# AirwayAI - Intubation Difficulty Predictor
 
-![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-yellow.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+AirwayAI is a modern, deep-learning based platform for preoperative and emergency airway assessment. It uses a ResNet18 convolutional neural network to analyze clinical photos and predict the risk of difficult intubation.
 
-An AI-powered application for preoperative and emergency airway assessment. Upload clinical photos and get instant risk predictions—**Easy** or **Difficult**—with confidence scores and full transparency.
+## Project Structure
 
-## 🎯 Features
+- **frontend/**: Next.js application (React, Tailwind CSS, Recharts)
+- **backend/**: FastAPI server (Python, PyTorch)
+- **utils/**: Directory for research papers and other clinical utilities
+- **data_augmented/**: Contains trained models and performance metrics
 
-- Real-time airway difficulty prediction
-- Support for multiple image analysis (Neutral, Tongue-out, Head-up positions)
-- Confidence scores for predictions
-- Built on ResNet18 architecture
-- Interactive web interface
-- Educational resources about intubation
-- Comprehensive visualization of results
+## Getting Started
 
-## 🏗️ Project Structure
+### 1. Prerequisites
+- Node.js (v18+)
+- Python (3.8+)
 
-```
-airway/
-├── app.py                  # Main Streamlit application
-├── train_intubation.py     # Model training script
-├── data/                   # Original dataset
-│   ├── class_names.txt     # Class labels
-│   ├── model_intubation.pt # Trained model
-│   ├── difficult/          # Difficult intubation images
-│   └── easy/              # Easy intubation images
-├── data_augmented/         # Augmented dataset
-│   ├── class_names.txt
-│   ├── model_intubation.pt
-│   ├── difficult/
-│   └── easy/
-└── images/                 # Example images for UI
-    ├── 4.jpg
-    ├── 5.jpg
-    └── 6.jpg
-```
+### 2. Backend Setup
+1. Navigate to the backend folder: `cd backend`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Start the server: `python main.py`
+   - The API will be available at `http://localhost:8000`
 
-## 🚀 Getting Started
+### 3. Frontend Setup
+1. Navigate to the frontend folder: `cd frontend`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+   - Access the application at `http://localhost:3000`
 
-### Prerequisites
+### 4. Research Paper
+- Place your research paper PDF inside the `utils/` folder. The application will automatically detect and serve it in the Research section.
 
-- Python 3.7 or higher
-- pip package manager
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/RupakGhosh4865/Difficult_AirwayAssesment.git
-   cd Difficult_AirwayAssesment
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Running the Application
-
-1. Start the Streamlit server:
-   ```bash
-   streamlit run app.py
-   ```
-
-2. Open your web browser and navigate to the provided URL (typically http://localhost:8501)
-
-## 📸 Image Requirements
-
-For accurate predictions, provide three standardized photos:
-
-1. **Neutral Position**
-   - Facing camera
-   - Mouth closed
-   - Full face visible
-
-2. **Tongue Extended**
-   - Facing camera
-   - Mouth open
-   - Tongue fully extended
-
-3. **Head Up (Sniffing Position)**
-   - Side view
-   - Neck extended
-   - Full profile visible
-
-## 🧠 Model Details
-
-- **Architecture**: ResNet18
-- **Input Size**: 224x224 pixels
-- **Output**: Binary classification (Easy/Difficult)
-- **Training Parameters**:
-  - Batch size: 8
-  - Epochs: 10
-  - Optimizer: Adam
-  - Learning rate: 1e-4
-
-### Data Augmentation Techniques
-
-- RandomResizedCrop (scale 0.7–1.0)
-- RandomHorizontalFlip
-- ColorJitter
-- RandomRotation (±15 degrees)
-
-## ⚠️ Disclaimer
-
-This application is designed for **educational and training purposes only**. It should not be used as the sole basis for clinical decision-making. Always rely on comprehensive clinical assessment and professional judgment for actual patient care.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-- **Rupak Ghosh** - *Initial work* - [RupakGhosh4865](https://github.com/RupakGhosh4865)
-
-## 🙏 Acknowledgments
-
-- ResNet architecture by Microsoft Research
-- Streamlit for the amazing web framework
-- PyTorch team for the deep learning framework
+## Features
+- **Instant Risk Prediction**: Analyze neutral, tongue-out, and head-up photos.
+- **Deep Insights**: View confidence scores and probability distributions.
+- **Model Analytics**: Explore accuracy, precision, and confusion matrix data.
+- **Methodology Access**: Direct access to underlying research and papers.
 
 ---
-Made with ❤️ for the medical community
+*Disclaimer: For educational and simulated clinical support only. Not validated for real patient care.*
