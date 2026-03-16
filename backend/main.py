@@ -21,7 +21,9 @@ app.add_middleware(
 )
 
 # ---- Paths & Model Setup ---
-BASE_DIR = r"D:\difficult airway assesment\Difficult_AirwayAssesment"
+# Use relative paths so it works on any server (Windows or Linux)
+BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(BACKEND_DIR)  # Parent dir of backend/
 DATA_DIR = os.path.join(BASE_DIR, "data")
 AUGMENTED_DIR = os.path.join(BASE_DIR, "data_augmented")
 MODEL_PATH = os.path.join(DATA_DIR, "model_intubation.pt")
